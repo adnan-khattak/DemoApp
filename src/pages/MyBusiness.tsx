@@ -43,9 +43,9 @@ const MyBusiness = () => {
       <Header />
       <Navigation />
       
-      <section className="business-header">
-        <h1 className="business-title">My Business Dashboard</h1>
-        <p className="business-subtitle">
+      <section className="bg-gradient-to-br from-blue-500 to-blue-600 text-white py-12 text-center">
+        <h1 className="text-4xl font-bold mb-4">My Business Dashboard</h1>
+        <p className="text-xl opacity-90 max-w-2xl mx-auto">
           Manage your business, track performance, and grow your customer base all in one place.
         </p>
       </section>
@@ -53,14 +53,14 @@ const MyBusiness = () => {
       <Hero variant="growing" />
       <Stats variant="growing" />
 
-      <section className="business-content">
-        <h2 className="section-title">Business Features</h2>
-        <div className="feature-grid">
+      <section className="max-w-7xl mx-auto my-12 px-4">
+        <h2 className="text-3xl font-bold text-gray-800 text-center mb-8">Business Features</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
           {features.map((feature, index) => (
-            <div key={index} className="feature-card">
-              <div className="feature-icon">{feature.icon}</div>
-              <h3 className="feature-title">{feature.title}</h3>
-              <p className="feature-description">{feature.description}</p>
+            <div key={index} className="bg-white p-8 rounded-xl shadow-lg text-center hover:transform hover:-translate-y-2 transition-all duration-300">
+              <div className="text-5xl mb-4">{feature.icon}</div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-4">{feature.title}</h3>
+              <p className="text-gray-500 leading-relaxed">{feature.description}</p>
             </div>
           ))}
         </div>

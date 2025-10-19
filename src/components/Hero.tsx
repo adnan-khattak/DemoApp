@@ -16,9 +16,9 @@ const Hero = ({ variant = 'selling' }: HeroProps) => {
       };
 
   return (
-    <section className="hero">
-      <div className="hero-content">
-        <h1 className="hero-title">
+    <section className="max-w-7xl mx-auto my-8 px-4 grid grid-cols-2 gap-8 items-center">
+      <div className="flex flex-col gap-4">
+        <h1 className="text-4xl font-bold text-gray-800 leading-tight">
           {content.title.split('\n').map((line, i) => (
             <span key={i}>
               {line}
@@ -26,17 +26,19 @@ const Hero = ({ variant = 'selling' }: HeroProps) => {
             </span>
           ))}
         </h1>
-        <button className="cta-button">{content.buttonText}</button>
+        <button className="bg-blue-500 text-white border-none px-8 py-4 rounded-lg text-lg font-semibold cursor-pointer hover:bg-blue-600 transition-all duration-300 self-start">
+          {content.buttonText}
+        </button>
       </div>
       
-      <div className="hero-media">
-        <div style={{ position: 'relative' }}>
+      <div className="flex flex-col gap-4">
+        <div className="relative">
           <img 
             src="/src/assets/hero-meeting.jpg" 
             alt="Business professionals collaborating" 
-            className="hero-image" 
+            className="w-full h-80 object-cover rounded-xl shadow-lg" 
           />
-          <button className="play-button" aria-label="Play video">
+          <button className="absolute bottom-4 right-4 bg-white bg-opacity-90 border-none rounded-full w-15 h-15 flex items-center justify-center cursor-pointer hover:bg-white hover:scale-110 transition-all duration-300" aria-label="Play video">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
               <polygon points="5,3 19,12 5,21"/>
             </svg>

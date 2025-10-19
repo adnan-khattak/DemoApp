@@ -5,12 +5,22 @@ const Navigation = () => {
   const location = useLocation();
   
   return (
-    <nav className="nav">
-      <div className="nav-container">
-        <a href="/" className={`nav-link ${location.pathname === '/' ? 'active' : ''}`}>
+    <nav className="bg-gray-50 py-2 border-b border-gray-200">
+      <div className="max-w-7xl mx-auto px-4 flex gap-8">
+        <a 
+          href="/" 
+          className={`text-gray-500 px-4 py-2 rounded-md transition-all duration-300 font-medium ${
+            location.pathname === '/' ? 'text-blue-500 bg-blue-50' : 'hover:text-blue-500 hover:bg-blue-50'
+          }`}
+        >
           Home
         </a>
-        <a href="/business" className={`nav-link ${location.pathname === '/business' ? 'active' : ''}`}>
+        <a 
+          href="/business" 
+          className={`text-gray-500 px-4 py-2 rounded-md transition-all duration-300 font-medium ${
+            location.pathname === '/business' ? 'text-blue-500 bg-blue-50' : 'hover:text-blue-500 hover:bg-blue-50'
+          }`}
+        >
           My Business
         </a>
       </div>

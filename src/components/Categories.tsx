@@ -7,11 +7,11 @@ interface CategoryCardProps {
 }
 
 const CategoryCard = ({ image, label, title }: CategoryCardProps) => (
-  <div className="category-card">
-    <img src={image} alt={title} className="category-image" />
-    <div className="category-overlay">
-      <div className="category-label">{label}</div>
-      <h3 className="category-title">{title}</h3>
+  <div className="relative rounded-xl overflow-hidden shadow-lg hover:transform hover:-translate-y-2 transition-all duration-300">
+    <img src={image} alt={title} className="w-full h-48 object-cover" />
+    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent text-white p-6">
+      <div className="text-sm opacity-90 mb-2">{label}</div>
+      <h3 className="text-xl font-semibold">{title}</h3>
     </div>
   </div>
 );
@@ -36,13 +36,13 @@ const Categories = () => {
   ];
 
   return (
-    <section className="categories">
-      <h2 className="section-title">
-        From <span className="section-title-highlight">Home-Based Sellers to Global Suppliers</span> —
+    <section className="max-w-7xl mx-auto my-12 px-4 text-center">
+      <h2 className="text-3xl font-bold text-gray-800 mb-4">
+        From <span className="text-blue-500">Home-Based Sellers to Global Suppliers</span> —
       </h2>
-      <p className="section-subtitle">Real Businesses Growing Every Day</p>
+      <p className="text-lg text-gray-500 mb-8">Real Businesses Growing Every Day</p>
       
-      <div className="category-grid">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
         {categories.map((category, index) => (
           <CategoryCard key={index} {...category} />
         ))}
