@@ -1,50 +1,52 @@
 import React from 'react';
+import categ1 from '../assets/catg1.jpg';
+import categ2 from '../assets/catg2.png';
+import categ3 from '../assets/catg3.jpg';
 
 interface CategoryCardProps {
   image: string;
-  label: string;
-  title: string;
+  text: string;
+  position: 'top-left' | 'top-right' | 'bottom-center';
 }
 
-const CategoryCard = ({ image, label, title }: CategoryCardProps) => (
-  <div className="relative rounded-xl overflow-hidden shadow-lg hover:transform hover:-translate-y-2 transition-all duration-300">
-    <img src={image} alt={title} className="w-full h-48 object-cover" />
-    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent text-white p-6">
-      <div className="text-sm opacity-90 mb-2">{label}</div>
-      <h3 className="text-xl font-semibold">{title}</h3>
+const overlayPositions: Record<string, string> = {
+  'top-left': 'top-4 left-4',
+  'top-right': 'top-4 right-4',
+  'bottom-center': 'bottom-4 left-1/2 transform -translate-x-1/2',
+};
+
+const CategoryCard = ({ image, text, position }: CategoryCardProps) => (
+  <div className="relative w-full h-64 rounded-2xl overflow-hidden shadow-lg">
+    <img
+      src={image}
+      alt="Category"
+      className="absolute inset-0 w-full h-full object-cover"
+      style={{ objectFit: 'cover', objectPosition: 'center' }}
+    />
+    {/* Dark Overlay */}
+    <div className="absolute inset-0 bg-black/40"></div>
+
+    {/* Overlay Text */}
+    <div
+      className={`absolute text-white text-2xl font-bold drop-shadow-lg ${overlayPositions[position]}`}
+    >
+      {text}
     </div>
   </div>
 );
 
 const Categories = () => {
   const categories = [
-    {
-      image: '/src/assets/local-digital.jpg',
-      label: 'Local',
-      title: 'to Digital'
-    },
-    {
-      image: '/src/assets/women-entrepreneurs.jpg',
-      label: 'Women',
-      title: 'Entrepreneurs'
-    },
-    {
-      image: '/src/assets/global-reach.jpg',
-      label: 'Global',
-      title: 'Reach'
-    }
+    { image: categ1, text: 'Local to Digitize', position: 'top-left' },
+    { image: categ2, text: 'Women Entrepreneurs', position: 'bottom-center' },
+    { image: categ3, text: 'Global Reach', position: 'top-left' },
   ];
 
   return (
-    <section className="max-w-7xl mx-auto my-12 px-4 text-left">
-      <h2 className="text-3xl font-bold text-gray-800 mb-4">
-        From <span className="text-blue-500">Home-Based Sellers to Global Suppliers—</span> 
-      </h2>
-      <p className="text-lg text-gray-500 mb-8">Real Businesses Growing Every Day</p>
-      
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
-        {categories.map((category, index) => (
-          <CategoryCard key={index} {...category} />
+    <section className="max-w-6xl mx-auto my-12 px-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {categories.map((c, i) => (
+          <CategoryCard key={i} image={c.image} text={c.text} position={c.position} />
         ))}
       </div>
     </section>

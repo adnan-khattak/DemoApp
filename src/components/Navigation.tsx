@@ -10,7 +10,7 @@ const Navigation = () => {
         <a 
           href="/" 
           className={`text-gray-500 px-4 py-2 rounded-md transition-all duration-300 font-medium ${
-            location.pathname === '/' ? 'text-blue-500 bg-blue-50' : 'hover:text-blue-500 hover:bg-blue-50'
+            location.pathname === '/' ? 'text-blue-500 bg-black-50' : 'hover:text-black-500 hover:bg-blue-50'
           }`}
         >
           Home
@@ -18,7 +18,7 @@ const Navigation = () => {
         <a 
           href="/business" 
           className={`text-gray-500 px-4 py-2 rounded-md transition-all duration-300 font-medium ${
-            location.pathname === '/business' ? 'text-blue-500 bg-blue-50' : 'hover:text-blue-500 hover:bg-blue-50'
+            location.pathname === '/business' ? 'text-black-500 bg-black-50' : 'hover:text-black-500 hover:bg-blue-50'
           }`}
         >
           My Business
@@ -26,7 +26,7 @@ const Navigation = () => {
         <a 
           href="/" 
           className={`text-gray-500 px-4 py-2 rounded-md transition-all duration-300 font-medium ${
-            location.pathname === '/business' ? 'text-blue-500 bg-blue-50' : 'hover:text-blue-500 hover:bg-blue-50'
+            location.pathname === '/business' ? 'text-black-500 bg-black-50' : 'hover:text-black-500 hover:bg-blue-50'
           }`}
         >
           Map

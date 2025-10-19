@@ -11,8 +11,8 @@ interface StatsProps {
 
 const StatItem = ({ number, label }: StatItemProps) => (
   <div className="inline-block mx-8 mb-4 text-center">
-    <div className="text-4xl font-bold text-blue-500 block">{number}</div>
-    <div className="text-base text-gray-500 mt-2">{label}</div>
+    <div className="text-4xl font-bold text-[#2699FB] block">{number}</div>
+    <div className="text-base font-bold text-black mt-2">{label}</div>
   </div>
 );
 
@@ -39,6 +39,10 @@ const Stats = ({ variant = 'selling' }: StatsProps) => {
         <StatItem key={index} {...stat} />
       ))}
       <p className="max-w-4xl mx-auto mt-8 text-lg text-gray-600 leading-relaxed">{description}</p>
+      <h2 className="text-left text-2xl font-bold text-gray-800 ">
+        From <span className="text-blue-500">Home-Based Sellers to Global Suppliers—</span> 
+      </h2>
+      <p className="text-left text-2xl font-bold text-gray-800">Real Businesses Growing Every Day</p>
     </section>
   );
 };
