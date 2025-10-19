@@ -2,7 +2,7 @@ import React from 'react';
 
 const Header = () => {
   return (
-    <header className="header">
+    <header className="header bg-blue-500 border-2 border-black">
       <div className="header-container">
         <div className="search-bar">
           <input 
