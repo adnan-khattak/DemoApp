@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   FaSearch,
   FaMicrophone,
@@ -9,6 +10,7 @@ import {
   FaBell,
   FaUser,
   FaChevronDown,
+  FaStore,
 } from "react-icons/fa";
 
 const Header = () => {
@@ -17,11 +19,17 @@ const Header = () => {
       <div className="max-w-7xl mx-auto">
         {/* Mobile Layout */}
         <div className="flex items-center justify-between sm:hidden">
-          {/* My Account on Left for Mobile */}
-          <button className="flex items-center gap-2 text-white hover:opacity-80 transition">
-            <FaUser size={18} />
-            <span className="text-sm font-medium">My Account</span>
-          </button>
+          {/* My Account and My Business on Left for Mobile */}
+          <div className="flex items-center gap-4">
+            <Link to="/business" className="flex items-center gap-2 text-white hover:opacity-80 transition">
+              <FaStore size={16} />
+              <span className="text-sm font-medium">My Business</span>
+            </Link>
+            <button className="flex items-center gap-2 text-white hover:opacity-80 transition">
+              <FaUser size={18} />
+              <span className="text-sm font-medium">My Account</span>
+            </button>
+          </div>
 
           {/* Right Icons for Mobile */}
           <div className="flex items-center gap-4 text-white">
@@ -75,6 +83,11 @@ const Header = () => {
 
           {/* Right Icons */}
           <div className="flex items-center gap-6 text-white">
+            <Link to="/business" className="flex items-center gap-2 hover:opacity-80 transition">
+              <FaStore size={18} />
+              <span className="text-sm font-medium">My Business</span>
+            </Link>
+
             <button className="hover:opacity-80 transition">
               <FaHeart size={20} />
             </button>
