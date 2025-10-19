@@ -23,6 +23,14 @@ const Navigation = () => {
         >
           My Business
         </a>
+        <a 
+          href="/" 
+          className={`text-gray-500 px-4 py-2 rounded-md transition-all duration-300 font-medium ${
+            location.pathname === '/business' ? 'text-blue-500 bg-blue-50' : 'hover:text-blue-500 hover:bg-blue-50'
+          }`}
+        >
+          Map
+        </a>
       </div>
     </nav>
   );

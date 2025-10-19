@@ -36,9 +36,9 @@ const Categories = () => {
   ];
 
   return (
-    <section className="max-w-7xl mx-auto my-12 px-4 text-center">
+    <section className="max-w-7xl mx-auto my-12 px-4 text-left">
       <h2 className="text-3xl font-bold text-gray-800 mb-4">
-        From <span className="text-blue-500">Home-Based Sellers to Global Suppliers</span> —
+        From <span className="text-blue-500">Home-Based Sellers to Global Suppliers—</span> 
       </h2>
       <p className="text-lg text-gray-500 mb-8">Real Businesses Growing Every Day</p>
       
