@@ -5,8 +5,8 @@ const Navigation = () => {
   const location = useLocation();
   
   return (
-    <nav className="bg-gray-50 py-2 border-b border-gray-200">
-      <div className="max-w-7xl mx-auto px-4 flex gap-8">
+    <nav className="border-b-[1.5px] border-[#2699FB] py-1">
+      <div className="max-w-7xl mx-auto px-4 flex gap-4 ml-2 sm:ml-4 md:ml-6 lg:ml-8 xl:ml-12">
         <span
           className={`text-gray-500 px-4 py-2 rounded-md transition-all duration-300 font-medium`}
         >

@@ -1,54 +1,104 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import categ1 from '../assets/catg1.jpg';
 import categ2 from '../assets/catg2.png';
 import categ3 from '../assets/catg3.jpg';
 
-interface CategoryCardProps {
-  image: string;
-  text: string;
-  position: 'top-left' | 'top-right' | 'bottom-center';
-}
-
-const overlayPositions: Record<string, string> = {
-  'top-left': 'top-2 sm:top-3 md:top-4 left-2 sm:left-3 md:left-4',
-  'top-right': 'top-2 sm:top-3 md:top-4 right-2 sm:right-3 md:right-4',
-  'bottom-center': 'bottom-2 sm:bottom-3 md:bottom-4 left-1/2 transform -translate-x-1/2',
-};
-
-const CategoryCard = ({ image, text, position }: CategoryCardProps) => (
-  <div className="relative w-full h-48 sm:h-56 md:h-64 lg:h-72 rounded-xl md:rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
-    <img
-      src={image}
-      alt="Category"
-      className="absolute inset-0 w-full h-full object-cover"
-      style={{ objectFit: 'cover', objectPosition: 'center' }}
-    />
-    {/* Dark Overlay */}
-    <div className="absolute inset-0 bg-black/40"></div>
-
-    {/* Overlay Text */}
-    <div
-      className={`absolute text-white text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold drop-shadow-lg ${overlayPositions[position]}`}
-    >
-      {text}
-    </div>
-  </div>
-);
+const categories = [
+  { image: categ1, text: 'Local to Digital' },
+  { image: categ2, text: 'Women Entrepreneurs' },
+  { image: categ3, text: 'Global Reach' },
+];
 
 const Categories = () => {
-  const categories = [
-    { image: categ1, text: 'Local to Digitize', position: 'top-left' },
-    { image: categ2, text: 'Women Entrepreneurs', position: 'bottom-center' },
-    { image: categ3, text: 'Global Reach', position: 'top-left' },
-  ];
+  const [positions, setPositions] = useState(categories);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      // rotate array every 3 seconds
+      setPositions((prev) => [prev[1], prev[2], prev[0]]);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const getTextPosition = (item, index) => {
+    if (item.text === 'Women Entrepreneurs') {
+      return 'bottom-center';
+    } else {
+      return 'top-left';
+    }
+  };
 
   return (
-    <section className="max-w-7xl mx-auto my-8 sm:my-12 lg:my-16 px-4 sm:px-6 lg:px-8">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
-        {categories.map((c, i) => (
-          <CategoryCard key={i} image={c.image} text={c.text} position={c.position} />
-        ))}
-      </div>
+    <section className="max-w-7xl mx-auto my-12 px-4 flex justify-center items-center gap-6 transition-all duration-700">
+      {positions.map((item, index) => {
+        const textPosition = getTextPosition(item, index);
+        
+        return (
+          <div
+            key={index}
+            className={`relative overflow-hidden rounded-xl shadow-lg transition-all duration-700 ease-in-out
+              ${index === 1
+                ? 'w-72 sm:w-80 md:w-96 h-64 sm:h-72 md:h-80 z-10'
+                : 'w-52 sm:w-60 md:w-64 h-64 sm:h-72 md:h-80 opacity-80'}
+            `}
+          >
+            {/* Background Image */}
+            <img
+              src={item.image}
+              alt={item.text}
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1500ms] ease-in-out"
+              style={{
+                animation: 'slide-in 3s ease-in-out',
+              }}
+            />
+
+            {/* Overlay */}
+            <div className={`absolute inset-0 transition-all duration-700 ${
+              index === 1 ? 'bg-black/30' : 'bg-black/50'
+            }`}></div>
+
+            {/* Animated Text */}
+            <div
+              className={`absolute transition-all duration-700 text-white text-lg sm:text-xl md:text-2xl font-bold ${
+                index === 1 
+                  ? 'opacity-100 scale-100' 
+                  : 'opacity-70 scale-90'
+              } ${
+                textPosition === 'bottom-center'
+                  ? 'bottom-4 left-1/2 transform -translate-x-1/2 text-center w-full px-4'
+                  : 'top-4 left-4 text-left max-w-[80%]'
+              } ${
+                index === 1 ? 'translate-y-0' : 'translate-y-4'
+              }`}
+            >
+              {item.text}
+              
+              {/* Underline for center card */}
+              {index === 1 && textPosition === 'bottom-center' && (
+                <div className="w-16 h-1 bg-white mx-auto mt-2 rounded-full transition-all duration-1000 delay-300"></div>
+              )}
+            </div>
+
+            {/* Top-left corner accent for non-center cards */}
+            {index !== 1 && textPosition === 'top-left' && (
+              <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-white/60 rounded-tl-xl transition-all duration-500"></div>
+            )}
+          </div>
+        );
+      })}
+
+      {/* Keyframes for sliding animation */}
+      <style>
+        {`
+          @keyframes slide-in {
+            0% { transform: translateX(100%); opacity: 0; }
+            20% { transform: translateX(0); opacity: 1; }
+            80% { transform: translateX(0); opacity: 1; }
+            100% { transform: translateX(-100%); opacity: 0; }
+          }
+        `}
+      </style>
     </section>
   );
 };
