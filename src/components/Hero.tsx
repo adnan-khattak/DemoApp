@@ -17,7 +17,6 @@ const Hero = () => {
     }, 700); 
   };
 
-  // Auto move when video ends
   useEffect(() => {
     const vid = videoRef.current;
     if (!vid) return;
@@ -52,7 +51,6 @@ const Hero = () => {
           animating ? "-translate-x-1" : "translate-x-0"
         }`}
       >
-        {/* Left autoplay video */}
         <div
           className="relative w-full h-64 sm:h-80 md:h-96 lg:h-[400px] rounded-xl sm:rounded-2xl overflow-hidden shadow-lg"
           key={leftVideo}
@@ -68,7 +66,6 @@ const Hero = () => {
           />
         </div>
 
-        {/* Right upcoming video */}
         <div
           className="relative w-full h-48 sm:h-64 md:h-80 lg:h-[300px] rounded-xl sm:rounded-2xl overflow-hidden shadow-lg"
           key={rightVideo}

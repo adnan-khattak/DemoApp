@@ -14,7 +14,6 @@ const Categories = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      // rotate array every 3 seconds
       setPositions((prev) => [prev[1], prev[2], prev[0]]);
     }, 3000);
 
@@ -74,13 +73,11 @@ const Categories = () => {
             >
               {item.text}
               
-              {/* Underline for center card */}
               {index === 1 && textPosition === 'bottom-center' && (
                 <div className="w-16 h-1 bg-white mx-auto mt-2 rounded-full transition-all duration-1000 delay-300"></div>
               )}
             </div>
 
-            {/* Top-left corner accent for non-center cards */}
             {index !== 1 && textPosition === 'top-left' && (
               <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-white/60 rounded-tl-xl transition-all duration-500"></div>
             )}
@@ -88,7 +85,6 @@ const Categories = () => {
         );
       })}
 
-      {/* Keyframes for sliding animation */}
       <style>
         {`
           @keyframes slide-in {

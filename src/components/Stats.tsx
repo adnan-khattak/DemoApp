@@ -33,7 +33,6 @@ const Stats = () => {
 
   const [activeIndex, setActiveIndex] = useState(0);
 
-  // Cycle every 5 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev === 0 ? 1 : 0));
@@ -46,19 +45,18 @@ const Stats = () => {
 
   return (
     <section className="max-w-7xl mx-auto my-12 px-4 text-center relative overflow-hidden">
-      {/* Animated Container */}
+     
       <div
         key={activeIndex}
         className="transition-opacity duration-1000 ease-in-out opacity-100 animate-fade"
       >
-        {/* Stats */}
+  
         <div className="flex flex-wrap justify-evenly items-start">
           {statsData.map((stat, index) => (
             <StatItem key={index} {...stat} />
           ))}
         </div>
 
-        {/* Description */}
         <p className=" max-w-6xl mx-auto text-left mx-auto mt-4 text-lg text-gray-600 leading-relaxed transition-all duration-1000 ease-in-out">
           {description}
         </p>

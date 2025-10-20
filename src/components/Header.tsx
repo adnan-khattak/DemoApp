@@ -17,9 +17,7 @@ const Header = () => {
   return (
     <header className="bg-[#2699FB] px-4 sm:px-6 py-1 shadow-md">
       <div className="max-w-7xl mx-auto">
-        {/* Mobile Layout */}
         <div className="flex items-center justify-between sm:hidden">
-          {/* My Account on Left for Mobile */}
           <div className="flex items-center gap-4">
             <button className="flex items-center gap-2 text-white hover:opacity-80 transition">
               <HiOutlineUser size={20} />
@@ -56,7 +54,6 @@ const Header = () => {
               className="flex-1 text-sm text-gray-700 outline-none placeholder-gray-500"
             />
 
-            {/* Mic + Filter + Dropdown */}
             <div className="flex items-center gap-2 border-l border-gray-200 pl-3">
               <HiOutlineMicrophone
                 className="text-[#1890ff] cursor-pointer hover:opacity-80"
@@ -70,7 +67,6 @@ const Header = () => {
               {/* Divider */}
               <div className="border-l border-gray-200 h-5 mx-2"></div>
 
-              {/* Dropdown */}
               <button className="flex items-center text-sm text-[#1890ff] font-medium hover:opacity-80">
                 All Fields
                 <HiOutlineChevronDown className="ml-1" size={14} />
@@ -83,7 +79,6 @@ const Header = () => {
             <button className="hover:opacity-80 transition">
               <HiOutlineHeart size={22} />
             </button>
-
             <button className="hover:opacity-80 transition">
               <HiOutlineGift size={22} />
             </button>
