@@ -1,32 +1,28 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import {
-  FaSearch,
-  FaMicrophone,
-  FaFilter,
-  FaHeart,
-  FaGift,
-  FaShoppingCart,
-  FaBell,
-  FaUser,
-  FaChevronDown,
-  FaStore,
-} from "react-icons/fa";
+  HiOutlineHeart,
+  HiOutlineBell,
+  HiOutlineUser,
+  HiOutlineGift,
+  HiOutlineShoppingCart,
+  HiOutlineMicrophone,
+  HiOutlineFunnel,
+  HiOutlineMagnifyingGlass,
+  HiOutlineChevronDown,
+} from "react-icons/hi2";
+import logo from "../../public/logo.png"
 
 const Header = () => {
   return (
-    <header className="bg-[#2699FB] px-4 sm:px-6 py-3 shadow-md">
+    <header className="bg-[#2699FB] px-4 sm:px-6 py-1 shadow-md">
       <div className="max-w-7xl mx-auto">
         {/* Mobile Layout */}
         <div className="flex items-center justify-between sm:hidden">
-          {/* My Account and My Business on Left for Mobile */}
+          {/* My Account on Left for Mobile */}
           <div className="flex items-center gap-4">
-            {/* <Link to="/business" className="flex items-center gap-2 text-white hover:opacity-80 transition">
-              <FaStore size={16} />
-              <span className="text-sm font-medium">My Business</span>
-            </Link> */}
             <button className="flex items-center gap-2 text-white hover:opacity-80 transition">
-              <FaUser size={18} />
+              <HiOutlineUser size={20} />
               <span className="text-sm font-medium">My Account</span>
             </button>
           </div>
@@ -34,23 +30,24 @@ const Header = () => {
           {/* Right Icons for Mobile */}
           <div className="flex items-center gap-4 text-white">
             <button className="hover:opacity-80 transition">
-              <FaHeart size={20} />
+              <HiOutlineHeart size={22} />
             </button>
             <button className="hover:opacity-80 transition">
-              <FaShoppingCart size={20} />
+              <HiOutlineShoppingCart size={22} />
             </button>
             <button className="hover:opacity-80 transition">
-              <FaBell size={20} />
+              <HiOutlineBell size={22} />
             </button>
           </div>
         </div>
 
         {/* Desktop Layout */}
         <div className="hidden sm:flex items-center justify-between flex-wrap gap-4">
+          <img src={logo} alt="" className="w-[50px] h-[50px]"/>
           {/* Search Bar */}
           <div className="flex items-center bg-white rounded-full px-4 py-2 flex-1 max-w-2xl min-w-72 shadow-sm">
             {/* Search Icon */}
-            <FaSearch className="text-gray-500 mr-2" size={18} />
+            <HiOutlineMagnifyingGlass className="text-gray-500 mr-2" size={20} />
 
             {/* Input */}
             <input
@@ -61,13 +58,13 @@ const Header = () => {
 
             {/* Mic + Filter + Dropdown */}
             <div className="flex items-center gap-2 border-l border-gray-200 pl-3">
-              <FaMicrophone
+              <HiOutlineMicrophone
                 className="text-[#1890ff] cursor-pointer hover:opacity-80"
-                size={16}
+                size={18}
               />
-              <FaFilter
+              <HiOutlineFunnel
                 className="text-[#1890ff] cursor-pointer hover:opacity-80"
-                size={16}
+                size={18}
               />
 
               {/* Divider */}
@@ -76,33 +73,32 @@ const Header = () => {
               {/* Dropdown */}
               <button className="flex items-center text-sm text-[#1890ff] font-medium hover:opacity-80">
                 All Fields
-                <FaChevronDown className="ml-1" size={12} />
+                <HiOutlineChevronDown className="ml-1" size={14} />
               </button>
             </div>
           </div>
 
           {/* Right Icons */}
           <div className="flex items-center gap-6 text-white">
-        
             <button className="hover:opacity-80 transition">
-              <FaHeart size={20} />
+              <HiOutlineHeart size={22} />
             </button>
 
             <button className="hover:opacity-80 transition">
-              <FaGift size={20} />
+              <HiOutlineGift size={22} />
             </button>
 
             <button className="hover:opacity-80 transition">
-              <FaShoppingCart size={20} />
+              <HiOutlineShoppingCart size={22} />
             </button>
 
             <button className="hover:opacity-80 transition">
-              <FaBell size={20} />
+              <HiOutlineBell size={22} />
             </button>
 
             <button className="flex items-center gap-2 hover:opacity-80 transition">
-              <FaUser size={18} />
-              <span className="text-sm font-medium">My Account</span>
+              <HiOutlineUser size={20} />
+              <span className="text-xs font-semibold">My Account</span>
             </button>
           </div>
         </div>
